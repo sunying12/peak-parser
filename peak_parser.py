@@ -20,10 +20,13 @@ class Bedfile(object):
 				new_peak.start = int(fields[1]) #convert the string to an int
 				new_peak.end = int(fields[2])
 				new_peak.chromosome = fields[0] 
-
+				if new_peak.chromosome not in self.dict_bedfile:
+					self.dict_bedfile[new_peak.chromosome] = ""			
+				else:
+					self.dict_bedfile[new_peak.chromosome] = [new_peak.start, new_peak.end]
 				# add the new Peak to the dictionary
 					
-				print(new_peak.width())
+				print(self.dict_bedfile)
 				
 class Peak(object):
 	def __init__(self):
