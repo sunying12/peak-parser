@@ -11,9 +11,7 @@ class Bedfile(object):
 
 		self.chromosomes = dict() # key=chromosome name, value=Chromosome object
 		self.filepath = path
-		
-		list_of_chromosome_names = list()
-		
+				
 		with open(path) as bedfile:
 			for line in bedfile:
 				line = line.rstrip()
@@ -22,10 +20,9 @@ class Bedfile(object):
 				chr_name = fields[0]
 
 				# get existing or create new chromosome				
-				if chr_name in list_of_chromosome_names:
+				if chr_name in self.chromosomes:
 					chromosome =  self.chromosomes[chr_name]
 				else:
-					list_of_chromosome_names.append(chr_name)
 					chromosome = Chromosome(name=chr_name)
 					self.chromosomes[chr_name] = chromosome
 
@@ -48,7 +45,7 @@ class Chromosome(object):
 		self.name = name
 		self.length = None	# number of base pairs
 		self.peaks = list() # list of Peak objects
-	
+		self.genes = list()
 	
 class Peak(object):
 	def __init__(self):
@@ -67,8 +64,38 @@ class Peak(object):
 	def intersects_with(self, other_peak):
 		pass # return True or False
 		
-#class Gff_file():
-#	def __init__(self)		
+class Gff_file(object):
+	def __init__(self, path=None):
+		self.chromosomes = dict()
+		self.filepath = path
+				
+		with open(path) as gf:
+			for line in gf:
+				line = line.rstrip()
+				fields = line.split("\t")
+				chr_name = fields[0]
+			# get existing or create new chromosome				
+				if chr_name in self.chromosomes:
+					chromosome =  self.chromosomes[chr_name]
+				else:
+					chromosome = Chromosome(name=chr_name)
+					self.chromosomes[chr_name] = chromosome
 		
-		
+				if "gene" == fields[2]:
+					gene = Gene()
+					gene.start = int(fields[3])
+					gene.stop = int(fields[4])
+					gene.strand = fields[6]
+					geneid = fields[8].split(";")
+					gene.ID = geneid[0]
+				
+					chromosome.genes.append(gene)
+				
+class Gene(object):
+	def __init__(self):
+	
+		self.start = None
+		self.stop = None
+		self.ID = None
+		self.strand = None
 		
