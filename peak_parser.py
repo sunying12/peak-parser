@@ -9,37 +9,66 @@ class Bedfile(object):
 	'''
 	def __init__(self, path=None): #standard idiom when defining classes
 
-		self.dict_bedfile = dict() #always define a property in the class with "self.variable = ..."
-
-		with open(path, "r") as bedfile:
+		self.chromosomes = dict() # key=chromosome name, value=Chromosome object
+		self.filepath = path
+		
+		list_of_chromosome_names = list()
+		
+		with open(path) as bedfile:
 			for line in bedfile:
 				line = line.rstrip()
-				fields = line.split('\t')
-				#print(fields)
+				
+				fields = line.split("\t")
+				chr_name = fields[0]
+
+				# get existing or create new chromosome				
+				if chr_name in list_of_chromosome_names:
+					chromosome =  self.chromosomes[chr_name]
+				else:
+					list_of_chromosome_names.append(chr_name)
+					chromosome = Chromosome(name=chr_name)
+					self.chromosomes[chr_name] = chromosome
+
+				# create new peak from row
 				new_peak = Peak() #create new object with Peak class method
 				new_peak.start = int(fields[1]) #convert the string to an int
 				new_peak.end = int(fields[2])
-				new_peak.chromosome = fields[0] 
-				if new_peak.chromosome not in self.dict_bedfile:
-					self.dict_bedfile[new_peak.chromosome] = ""			
-				else:
-					self.dict_bedfile[new_peak.chromosome] = [new_peak.start, new_peak.end]
-				# add the new Peak to the dictionary
-					
-				print(self.dict_bedfile)
-				
+				new_peak.signal = float(fields[6])
+				peak_average = str(fields[3]).split(":")
+				new_peak.mean = peak_average[1]
+
+				chromosome.peaks.append(new_peak)
+			#print(chromosome.peaks)
+	
+	def chromosome_names(self):		
+		return self.chromosomes.keys()  	
+							
+class Chromosome(object):
+	def __init__(self,  name=None):
+		self.name = name
+		self.length = None	# number of base pairs
+		self.peaks = list() # list of Peak objects
+	
+	
 class Peak(object):
 	def __init__(self):
 
 		#parenthesis .start() means I'm calling a function. .start means it is a property (variable)
 		#properties for holding peak information. Must be defined here as something or nothing, in this case, None.
 		#avoid placeholder properties until you know what you want: it takes up memory and other things
-		self.chromosome = None
 		self.start = None
 		self.end = None
+		self.signal = None
+		self.mean = None
 		
 	def width(self):
 		return (self.end - self.start) #must use this variable (property) within this class because it hasn't been defined elsewhere.
 	
 	def intersects_with(self, other_peak):
 		pass # return True or False
+		
+#class Gff_file():
+#	def __init__(self)		
+		
+		
+		
