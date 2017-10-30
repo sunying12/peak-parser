@@ -1,0 +1,30 @@
+setwd("/Volumes/cim/CIM-EPIGENOME-ORDOG/SHARED/Sabriya/Stem-Cell paper/Expression heatmap/2xscs70 and (MY up; DMP not up)")
+ 
+library(gplots)
+ 
+library(RColorBrewer)
+ 
+library(colorRamps)
+ 
+my_palette<-colorRampPalette(c("blue", "black", "yellow"))(n=299)
+ 
+ 
+filename<-read.csv("2xscs70 MY up; DMP not up.csv", sep=",")
+ 
+row.names(ICC)<-filename$Gene
+ 
+ICC<-ICC[,2:5]
+ 
+ICC_matrix<-data.matrix(ICC)
+ 
+png("MY up DMP not up_02.png", width= 768, height = 1024, unit="px")
+ 
+heatmap.2((ICC_matrix),col=my_palette, scale="none", key=TRUE, symkey=FALSE, Rowv="true", Colv="false", density.info="none", trace="none", keysize="1", cexRow="0.5", cexCol="1.2")
+ 
+Warning messages:
+1: In heatmap.2((ICC_matrix), col = my_palette, scale = "none", key = TRUE,  :
+  Discrepancy: Rowv is FALSE, while dendrogram is `both'. Omitting row dendogram.
+2: In heatmap.2((ICC_matrix), col = my_palette, scale = "none", key = TRUE,  :
+  Discrepancy: Colv is FALSE, while dendrogram is `none'. Omitting column dendogram.
+ 
+dev.off()
