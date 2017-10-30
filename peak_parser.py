@@ -23,14 +23,14 @@ class Bedfile(object):
 				if chr_name in self.chromosomes:
 					chromosome =  self.chromosomes[chr_name] #chromosome_name is associated with the chromosome value, which in the else statement below we turn into a Chromosome object list
 				else:
-					chromosome = Chromosome(name=chr_name)
+					chromosome = Chromosome(name=chr_name) # we creating a new object in our dictionary, chromosome, and that object is of the Class Chromosome and its name is chr_name
 					self.chromosomes[chr_name] = chromosome
 
 				# create new peak from row
 				new_peak = Peak() #create new object with Peak class method
 				new_peak.start = int(fields[1]) #convert the string to an int
 				new_peak.end = int(fields[2])
-				new_peak.signal = float(fields[6])
+				new_peak.signal = float(fields[6]) #signal = peak height
 				peak_average = str(fields[3]).split(":")
 				new_peak.mean = peak_average[1]
 				#append the list of gene properties to the chromosome dictionary
@@ -64,6 +64,9 @@ class Peak(object):
 	
 	def intersects_with(self, other_peak):
 		pass # return True or False
+	
+	def __repr__(self): #Default override. unix returns the print function from this. If we define it here, then it won't return the default object location
+		return "<Peak {0}-{1}>".format(self.start, self.end)
 
 		
 class Gff_file(object):
@@ -100,7 +103,7 @@ class Gff_file(object):
 					geneid = fields[8].split(";")
 					gene.ID = geneid[0]
 					#append the list of gene properties to the chromosome dictionary
-					chromosome.genes.append(gene)
+					chromosome.genes.append(gene) #this populates the above chromosome dictionary.
 				
 class Gene(object):
 	def __init__(self):
@@ -115,26 +118,30 @@ class Gene(object):
 class DE_genes(object):
 	def __init__(self, path=None):
 		self.expression_values_dict = dict()
+		self.filepath=path
 	
 		with open(path) as defile:
 			for line in defile:
 				line = line.rstrip()
 				fields = line.split('\t')
 				gene_name = fields[2]
+				
+				if gene_name in self.expression_values_dict:
+					chromosome = self.expression_values_dict[gene_name]
+				else:
+					chromosome = Chromosome(name=gene_name) #calling Chromosome class here to populate list of objects later					
+					self.expression_values_dict[gene_name] = chromosome
 
-				if gene_name not in self.expression_values_dict:
-					gene_value_list_object = Chromosome(name = gene_name) #calling Chromosome class here to populate list of objects later					
-					self.expression_values_dict[gene_name] = gene_value_list_object
+				
 					gene = DEexpression()
 					gene.cluster = fields[0]
-					gene.ID = fields[2]
+					gene.ID = gene_name
 					gene.foldchange = fields[3:len(fields)-1]
 					gene.annotation = fields[-1]
-					
-				gene_value_list_object.degenes.append(gene)
-		
+				
+					chromosome.degenes.append(gene)
+	
 			
-		
 class DEexpression(object):
 	def __init__(self):
 	
