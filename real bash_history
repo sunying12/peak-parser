@@ -1,0 +1,500 @@
+rm intersect_file_At-ABF2-WG-OMalley.bed 
+ls
+cd ..
+ls
+rm intersect_file_At-
+rm intersect_file_At-ABF2-WG-OMalley.bed 
+rm intersect_file_At-TGA5-WG-OMalley.bed
+./bed_tools_usr.py -o out_files/ -M TSS_position.bed -f ./narrowPeak_files/At*
+ls
+emacs bed_tools_usr.py
+./bed_tools_usr.py -o out_files/ -M TSS_position.bed -f ./narrowPeak_files/At*
+ls
+cd out_files/
+ls
+cd ..
+ls
+less output_intersect 
+emacs output_intersect_parser.py 
+./output_intersect_parser.py
+ls
+less filtered_output_intersect
+grep "ID=" |awk '{Print $4}' filtered_output_intersect | awk -F "." '{Print $1}' | awk -f "=" '{Print $2}' | head 
+grep "ID=" filtered_output_intersect |awk '{Print $4}'| awk -F "." '{Print $1}' | awk -f "=" '{Print $2}' | head 
+grep "ID=" filtered_output_intersect
+grep "ID=" filtered_output_intersect |awk '{Print $4}'
+grep "ID=" filtered_output_intersect |awk '{print $4}'| awk -F";" '{print $1}' | awk -F"=" '{print $2}'  |  head
+grep "ID=" filtered_output_intersect |sed -E  's/.+ID=(.+);.+/\1/' |  head
+grep "ID=" filtered_output_intersect |sed -E  's/.+ID=([^;.]+);.+/\1/' |  head
+ls
+grep "ID=" filtered_output_intersect |sed -E  's/.+ID=([^;.]+);.+/\1/'  | gene_list.txt
+grep "ID=" filtered_output_intersect |sed -E  's/.+ID=([^;.]+);.+/\1/' > gene_list.txt
+less gene_list.txt 
+less filtered_output_intersect
+grep "ID=" filtered_output_intersect |awk '{print $4}'| awk -F";" '{print $1}' | awk -F"=" '{print $2}'  > gene_list.txt
+less gene_list.txt 
+wc -l gene_list.txt 
+ls
+mkdir Ying_pfb2017
+ls
+cd Ying_pfb2017/
+ls
+git clone https://github.com/demitri/peak-parser.git
+ls
+git clone https://github.com/demitri/peak-parser.git
+ls
+git clone https://github.com/demitri/peak-parser.git peak-parser-sunying12
+ls
+ls
+cd ..
+ls
+cd Ying_pfb2017/
+ls
+pwd
+cd ..
+ls
+cd Desktop/
+ls
+pwd
+ls
+cd ..
+ls
+cd Ying_pfb2017/
+ls
+ls
+cd ..
+ls
+cd Ying_pfb2017/
+ls
+open .
+ls
+cd ..
+ls
+cd Ying_pfb2017/
+ls
+conda install bwa
+emacs gff_parser.py
+wget https://github.com/arq5x/bedtools2/releases/download/v2.25.0/bedtools-2.25.0.tar.gz
+tar -zxvf bedtools-2.25.0.tar.gz
+curl -O https://github.com/arq5x/bedtools2/releases/download/v2.25.0/bedtools-2.25.0.tar.gz
+tar -zxvf bedtools-2.25.0.tar.gz
+cd bedtools2
+make
+git clone https://github.com/arq5x/bedtools2.git
+ls
+ tar -zxvf bedtools-2.25.0.tar.gz
+tar -zxvf bedtools-2.25.0.tar.gz
+l
+ls
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
+"
+brew tap homebrew/science
+brew install bedtools
+ls
+bedtools intersect -a TSS_posiiton.gff -b data.narrowPeak 
+bedtools intersect -a TSS_posiiton.gff -b data.narrowPeak
+bedtools
+ls
+less data.narrowPeak 
+less TSS_posiiton.gff
+bedtools intersect -a TSS_posiiton.gff -b data.narrowPeak
+intersectbed -a TSS_posiiton.gff -b data.narrowPeak
+bedtools intersect -a TSS_posiiton.gff -b data.narrowPeak output>
+bedtools intersect -a TSS_posiiton.gff -b data.narrowPeak output
+bedtools intersect -a TSS_posiiton.gff -b data.narrowPeak -wa -wb
+bedtools intersect -a TSS_posiiton.gff -b data.narrowPeak -wo | head -10
+bedtools intersect -a TSS_posiiton.gff -b data.narrowPeak -wo
+ls
+bedtools
+bedtools help intersect
+ls
+mv data.narrowPeak  data.bed
+bedtools intersect -a TSS_posiiton.gff -b data.bed 
+cp TSS_posiiton.gff TSS_position.bed
+bedtools intersect -a TSS_posiiton.bed -b data.bed 
+ll
+ls -l
+mv TSS_posiiton.gff TSS_position.gff
+bedtools intersect -a TSS_posititon.bed -b data.bed 
+bedtools intersect -a TSS_position.bed -b data.bed 
+ls
+less data.bed
+less TSS_position.gff
+less genes.gff
+bedtools intersect -a genes.gff -b data.bed 
+bedtools intersect -a data.bed -b data.bed 
+bedtools intersect -a data.bed -b data.bed -wa
+intersectBed -a data.bed -b data.bed -wa
+intersectBed -a genes.gff -b data.bed -wa
+ls
+intersectBed -a genes.gff -b data.bed -sorted
+pwd
+ls
+less TAIR10_chr_only.fas 
+intersectBed -a genes.gff -b data.bed -sorted -g TAIR10_chr_only.fas 
+intersectBed -a TSS_position.bed -b data.bed -sorted -g TAIR10_chr_only.fas 
+intersectBed -a TSS_position.bed -b data.bed
+less TSS_position.bed 
+lss data.bed 
+less data.bed 
+intersectBed -a TSS_position.bed -b data.bed
+intersectBed -a TSS_position.bed -b data.bed -wa -wb
+intersectBed -a TSS_position.bed -b data.bed -wa -wb -wao
+intersectBed -a TSS_position.bed -b data.bed -wa -wb -wo
+intersectBed -a TSS_position.bed -b data.bed -wo
+intersectBed -a TSS_position.bed -b data.bed -c
+intersectBed -a TSS_position.bed -b data.bed -wa -wb
+intersectBed -a TSS_position.bed -b data.bed -wo
+intersectBed -a TSS_position.bed -b data.bed -c
+ls
+open
+open .
+ls
+mv data2 data2.bed
+intersectBed -a TSS_position.bed -b data.bed, data2.bed -c
+intersectBed -a TSS_position.bed -b data2.bed -c
+intersectBed -a TSS_position.bed -b data.bed -c
+347194-345757
+ls
+less TSS_position.gff
+intersectBed -a TSS_position.bed -b data.bed -c
+intersectBed -a TSS_position.bed -b data.bed -wab
+intersectBed -a TSS_position.bed -b data.bed -wa -wb -c
+intersectBed -a TSS_position.bed -b data.bed -wa -wb
+ls
+less TSS_position.gff
+bbedit TSS_position.gff 
+bbedit genes.gff 
+ls
+emacs gff_parser.py
+bedtools
+ls
+bedtools intersect -a TSS_position.gff -b data.bed -c
+bedtools intersect -a TSS_position.gff -b data.bed -wao
+ls
+bedtools intersect -a TSS_position.gff -b data.bed -g TAIR10_chr_only.fas 
+bedtools intersect -a TSS_position.gff -b data.bed data2.bed 
+bedtools intersect -a TSS_position.gff -b data.bed data2.bed -c
+bedtools intersect -a TSS_position.gff -b data.bed data2.bed -wa
+bedtools intersect -a TSS_position.gff -b data.bed data2.bed -wa -wb
+bedtools intersect -a TSS_position.gff -b data.bed data2.bed -wo
+bedtools intersect -a TSS_position.gff -b data.bed
+bedtools intersect -a TSS_position.gff -b data.bed data2.bed -c
+bedtools intersect -a TSS_position.gff -b data.bed data2.bed -c | awk'{print $5}'
+bedtools intersect -a TSS_position.gff -b data.bed data2.bed -c > sample.txt
+less sample.txt 
+awk -F '{print $5}' sample.txt 
+awk -F '{print $5}' sample.txt 
+less sample.txt wk '{ print $2 $4 }' sample.txt 
+less sample.txt wk '{ print $2 $5 }' sample.txt 
+less sample.txt awk '{ print $5 }' sample.txt 
+history
+ls
+awk -F '{print $5}' sample.txt 
+wc -l sample.txt 
+wc -l TSS_position.gff 
+ls
+rm intersect*
+ls
+awk -F "\"*,\"*" '{print $5}' sample.txt 
+awk -F "\"*,\"*" '{print $5}' sample.txt 
+cat sample.txt | awk -F "\"*,\"*" '{print $2}'
+wc -l sample.txt 
+ls
+cd narrowPeak_files/
+ls | wc-l
+wc -l *
+wc -l *
+ls
+cd ..
+ls
+ls
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+ls
+cp output_intersect output_intersect.csv
+./output_intersect_parser.py
+ls
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+ls
+open ./
+ls
+cd peak-parser-Ying/
+ls
+git pull upstream master
+cd ..
+ls
+cd peak-parser-Ying/
+rm peak_parser.py
+git pull upstream master
+git status
+ll
+ls -l
+ll -h
+ls -l -h
+git add *.py
+git commit - "files from group project"
+git commit -m "files from group project"
+git push
+vi .git/config 
+git push
+vi .git/config 
+git push
+cd ..
+ls
+cd peak-parser-Ying/
+open ./
+ls
+ pwd
+cd ..
+ls
+ls
+cd peak-parser
+git pull
+cd //
+ls
+cd usr/
+ls
+cd bin/
+ls
+cd ~
+ls
+cd Ying_pfb2017/
+ls
+cd peak-parser-Ying/
+ls
+git pull upstream master
+git pull upstream master
+cd ..
+ls
+ls
+ls
+cd peak-parser-Ying/
+ls
+git pull upstream master
+cd ..
+ls
+cd peak-parser
+git pull
+cd ..
+ls
+./output_intersect_parser.py 
+./output_intersect_parser.py 
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+ls
+less output_intersect
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+./output_intersect_parser.py
+ls
+less output_intersect
+emacs ./gff_parser_sp.py
+ld
+ls
+cd Ying_pfb2017/
+ls
+emacs gff_parser_sp.py
+ls
+bedtools intersect -wa -wb -a TSS_position.bed -B ./narrowPeak_files/At-ABF2-WG-OMalley.bed ./narrowPeak_files/At-TGA5-WG-OMalley.bed - sorted - names gff ABF2 TGA5 -f 1.0
+bedtools intersect -wa -wb -a TSS_position.bed -B ./narrowPeak_files/At-ABF2-WG-OMalley.bed ./narrowPeak_files/At-TGA5-WG-OMalley.bed - sorted - names gff ABF2 TGA5 -f 1.0
+bedtools intersect -wa -wb -a TSS_position.bed -B ./narrowPeak_files/At-ABF2-WG-OMalley.bed - names gff ABF2 TGA5 -f 1.0
+bedtools intersect -wa -wb -a TSS_position.bed -B ./narrowPeak_files/At-ABF2-WG-OMalley.bed -f 1.0
+ls
+cp narrowPeak_files/At* ./
+ls
+bedtools intersect -wa -wb -a TSS_position.bed -b At-ABF2-WG-OMalley.bed =f 1.0
+bedtools intersect -wa -wb -a TSS_position.bed -b At-ABF2-WG-OMalley.bed -c
+bedtools intersect -a TSS_position.bed -b At-ABF2-WG-OMalley.bed -wa -wb
+bedtools intersect -a TSS_position.bed -b At-ABF2-WG-OMalley.bed At-TGA5-WG-OMalley.bed -wa -wb
+bedtools intersect -a TSS_position.bed -b At-ABF2-WG-OMalley.bed At-TGA5-WG-OMalley.bed -wa -wb -f 1.0
+bedtools intersect -a TSS_position.bed -b At-ABF2-WG-OMalley.bed At-TGA5-WG-OMalley.bed -wa -wb
+bedtools intersect -a TSS_position.bed -b At-ABF2-WG-OMalley.bed -wa -wb
+bedtools intersect -a TSS_position.bed -b At-ABF2-WG-OMalley.bed -f 1.0
+bedtools intersect -a TSS_position.bed -b At-ABF2-WG-OMalley.bed -wb
+bedtools intersect -a TSS_position.bed -b At-ABF2-WG-OMalley.bed -wb
+bedtools intersect -a TSS_position.bed -b At-ABF2-WG-OMalley.bed -wa -wb
+bedtools intersect -a TSS_position.bed -b At-ABF2-WG-OMalley.bed -wa -wb > ABF2_genes
+bedtools intersect -a TSS_position.bed -b At-TGA5-WG-OMalley.bed -wa -wb > TGA5_genes
+awk -F"=" '{print $5" "$6" "$7}' ABF2_genes |head
+awk '{print $5" "$6" "$7}' ABF2_genes |head
+awk '{print $5" "$6" "$7}' ABF2_genes > ABF2_genes_inTSS.bed
+awk '{print $5" "$6" "$7}' TGA5_genes > TGA5_genes_inTSS.bed
+less ABF2_genes_inTSS.bed 
+less TGA5_genes_inTSS.bed 
+awk '{print $5" "$6" "$7}' TGA5_genes > TGA5_genes_inTSS.bed
+open .
+pwd
+ls
+wc -l TGA5_genes_inTSS.bed
+wc -l At-TGA5-WG-OMalley.bed
+wc -l ABF2_genes
+wc -l TGA5_genes
+wc -l At-TGA5-WG-OMalley.bed
+wc -l At-ABF2-WG-OMalley.bed
+w -l TGA5_genes_inTSS.bed
+wc -l TGA5_genes_inTSS.bed
+wc -l ABF2_genes_inTSS.bed
+ls
+wc -l ABF2_genes
+wc-l TGA5_genes
+wc -l TGA5_genes
+bedtools intersect -a TSS_position.bed -b At-ABF2-WG-OMalley.bed -wa -wb > ABF2_genes
+bedtools intersect -a TSS_position.bed -b At-TGA5-WG-OMalley.bed -wa -wb > TGA5_genes
+awk '{print $5" "$6" "$7}' ABF2_genes > ABF2_genes_inTSS.bed
+awk '{print $5" "$6" "$7}' TGA5_genes > TGA5_genes_inTSS.bed
+ls
+wc -l ABF2_genes
+WC -l TGA5_genes
+less TGA5_genes
+wc -l TGA5_genes_inTSS.bed 
+wc -l ABF2_genes
+wc -l TGA5_genes
+wc -l ABF2_genes_inTSS.bed 
+wc -l At-TGA5-WG-OMalley.bed
+wc -l At-ABF2--WG-OMalley.bed
+wc -l At-ABF2-WG-OMalley.bed
+ls
+cd peak-parser
+cd ..
+ls
+cd peak-parser-Ying/
+ls
+TSS_position.bed
+less TSS_position.bed
+grep "gene" -F TAIR10_GFF3_genes.gff > genes.gff
+grep "+" -F genes.gff > forward_genes.gff
+./gff_parser.py
+less TSS_position.
+less TSS_position.gff
+emacs gff_parser.py
+cd ..
+ls
+less TSS_position.bed 
+less TSS_position.bed 
+less
+ls
+cd Ying_pfb2017/
+ls
+./gff_parser_sp.py
+emacs gff_parser_sp.py
+./gff_parser_sp.py
+./gff_parser_sp.py
+emacs gff_parser_sp.py
+./gff_parser_sp.py
+emacs gff_parser_sp.py
+./gff_parser_sp.py
+ls
+less SpTSS_position.gff
+bbedit SpTSS_position.gff 
+curl -O http://thellungiella.org/data/TpV84_ORFs.gff
+ls
+less TpV84_ORFs.gff
+less
+less TpV84_ORFs.gff
+grep "transcription_start_site" -F  TpV84_ORFs.gff > spgenes.gff
+less spgenes.gff 
+grep "+" -F spgenes.gff > spforward_genes.gff
+emacs gff_parser_sp.py
+ls
+emacs bed_tools_usr.py 
+./bed_tools_usr.py -M TSS_position.bed -f ./narrowPeak_files/At-ABF2-WG-OMalley.bed
+bedtools
+ls
+./bed_tools_usr.py -M TSS_position.gff -f ./narrowPeak_files/At-ABF2-WG-OMalley.bed
+./bed_tools_usr.py -M TSS_position.bed -f ./narrowPeak_files/At-ABF2-WG-OMalley.bed
+emacs bed_tools_usr.py
+emacs bed_tools_usr.py
+./bed_tools_usr.py -M TSS_position.bed -f ./narrowPeak_files/At-ABF2-WG-OMalley.bed
+emacs bed_tools_usr.py
+./bed_tools_usr.py -M TSS_position.bed -f ./narrowPeak_files/At-ABF2-WG-OMalley.bed
+ls
+less intersect_file_At-ABF2-WG-OMalley.bed
+less ./bed_tools_usr.py -M SpTSS_position.gff -f ./narrowPeak_files/Sp-SpABF2b-SpshootS32.bed
+./bed_tools_usr.py -M SpTSS_position.gff -f ./narrowPeak_files/Sp-SpABF2b-SpshootS32.bed
+less
+ls
+less bed_tools_usr.py
+less ./bed_tools_usr.py
+cp bed_tools_usr.py sp_bed_tools_usr.py
+emacs sp_bed_tools_usr.py
+./bed_tools_usr.py -M SpTSS_position.gff -f ./narrowPeak_files/Sp-SpABF2b-SpshootS32.bed
+ls
+less intersect_file_Sp-SpABF2b-SpshootS32.bed
+bedtools intersect -a SpTSS_position.gff -b ./narrowPeak_files/Sp-SpABF2b-SpshootS32.bed -c
+ls
+less narrowPeak_files/Sp-SpABF2b-SpshootS32.bed 
+bbedit SpTSS_position.gff
+bedtools intersect -a SpTSS_position.gff -b ./narrowPeak_files/Sp-SpABF2b-SpshootS32.bed -c
+ls
+less TSS_position.bed 
+less sp_bed_tools_usr.py
+less SpTSS_position.gff
+bedtools intersect -a SpTSS_position.gff -b ./narrowPeak_files/Sp-SpABF2b-SpshootS32.bed -c
+./bed_tools_usr.py -M SpTSS_position.gff -f ./narrowPeak_files/Sp-SpABF2b-SpshootS32.bed
+ls
+less intersect_file_Sp-SpABF2b-SpshootS32.bed
+rm intersect_file_Sp-SpABF2b-SpshootS32.bed
+./bed_tools_usr.py -M SpTSS_position.gff -f ./narrowPeak_files/Sp-SpABF2b-SpshootS32.bed
+ls
+less intersect_file_Sp-SpABF2b-SpshootS32.bed
+emacs bed_tools_usr.py
+./bed_tools_usr.py -M SpTSS_position.gff -f ./narrowPeak_files/Sp-SpABF2b-SpshootS32.bed
+less intersect_file_Sp-SpABF2b-SpshootS32.bed 
+bedtools intersect -a SpTSS_position.gff -b ./narrowPeak_files/Sp-SpABF2b-SpshootS32.bed -c
+bedtools intersect -a SpTSS_position.gff -b ./narrowPeak_files/Sp-SpABF2b-SpshootS32.bed -c
+ls
+cd narrowPeak_files/
+ls
+open .
+ls
+cd ..
+ls
+cd peak-parser-Ying/
+ls
+less forward_genes.gff
+less TAIR10_GFF3_genes.gff
+less genes.gff
